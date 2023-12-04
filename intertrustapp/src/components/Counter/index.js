@@ -7,8 +7,8 @@ export const Counter =()=>{
     }
     return(
         <>
-            <h6>Count</h6>
-            <button className="btn btn-primary" onClick={increment()}>Increment</button>
+            <h6>Count= {count}</h6>
+            <button className="btn btn-primary" onClick={increment}>Increment</button>
         </>
     )
 }
