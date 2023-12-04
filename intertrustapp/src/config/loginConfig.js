@@ -15,6 +15,14 @@ export const loginConfig ={
         type:"password",
        
     },
+    Country:{
+        label:"Country",
+        name:"country",
+        id:"country",
+        placeholder:"Select Country",
+        type:"dropdown",
+        data:[]
+    },
     Gender:{
         label:"Gender",
         name:"gender",

@@ -1,13 +1,13 @@
-export const Dropdown=({config,onChange})=>{
+export const Dropdown=({config,onChange,data})=>{
     const buildOptions =()=>{
-        let result = config.data.map((item,index)=>{
+        let result = data.map((item,index)=>{
             return(<option  value={item.value}>{item.text}</option>)
         });
         return result;
     }
     return(
         <div class="row mb-3">
-        <label for={config.id}
+        <label htmlFor={config.id}
          class="col-sm-2 col-form-label">{config.label}</label>
         <div class="col-sm-4">
          <select id={config.id}
