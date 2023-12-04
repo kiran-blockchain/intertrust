@@ -1,4 +1,15 @@
 export const Header = (props) => {
+
+    const buildNavItems = ()=>{
+      let result =   props.config.navItems.map((item,index)=>{
+        return (
+            <li class="nav-item" key={item.name+index}>
+                            <a class="nav-link" href={item.url}>{item.name}</a>
+                        </li>
+        )
+      });
+      return result;
+    };
     return (
         <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
             <div class="container-fluid">
@@ -8,20 +19,7 @@ export const Header = (props) => {
                 </button>
                 <div class="collapse navbar-collapse" id="navbarColor02">
                     <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#">Home
-                                <span class="visually-hidden">(current)</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Features</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Pricing</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">About</a>
-                        </li>
+                        {buildNavItems()}
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
                             <div class="dropdown-menu">
