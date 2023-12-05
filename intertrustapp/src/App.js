@@ -6,6 +6,8 @@ import { Textbox } from "./components/Textbox";
 import { loginConfig } from "./config/loginConfig";
 import { Login } from "./pages/Login";
 import { Parent } from "./components/Parent";
+import { DemoFormMemo } from "./components/DemoUseMemo";
+import CallBackDemo from "./components/CallbackDemo";
 
 export const App=()=>{
   return(
@@ -14,7 +16,9 @@ export const App=()=>{
             <Header config={headerConfig}/>
             <div className="row">
                {/* <Login/> */}
-               <Parent/>
+               {/* <Parent/> */}
+               {/* <DemoFormMemo/> */}
+               <CallBackDemo/>
             </div>
           </div>
   )

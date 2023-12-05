@@ -1,23 +1,29 @@
-import { memo, useState } from "react"
+import { memo,useMemo, useState } from "react"
 
 export const Parent=()=>{
-    const[one,setOne]= useState("one");
+    const[one,setOne]= useState(1);
     const[two,setTwo]= useState("two");
+    const expensiveCalculation =()=>{
+
+    }
+    const handleClickOfFirst =(e)=>{
+        setOne(one+1)
+    }
+    const handleClickOfSecond =(e)=>{
+        setTwo(two+1)
+    }
+
     return(
         <div>
             <ChildOne data={one}/>
             <ChildTwo data={two}/>
             <button className="btn btn-primary"
-                onClick={e=>{
-                    setOne("First Updated")
-                }}
+                onClick={handleClickOfFirst}
             >
                 Update Fist
             </button>
             <button className="btn btn-primary"
-                onClick={e=>{
-                    setTwo("Second Updated")
-                }}
+                onClick={handleClickOfSecond}
             >
                 Update Second
             </button>
