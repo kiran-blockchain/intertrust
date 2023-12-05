@@ -5,6 +5,7 @@ import { Counter, Increment } from "./components/Counter";
 import { Textbox } from "./components/Textbox";
 import { loginConfig } from "./config/loginConfig";
 import { Login } from "./pages/Login";
+import { Parent } from "./components/Parent";
 
 export const App=()=>{
   return(
@@ -12,7 +13,8 @@ export const App=()=>{
           <div className="container-fluid">
             <Header config={headerConfig}/>
             <div className="row">
-               <Login/>
+               {/* <Login/> */}
+               <Parent/>
             </div>
           </div>
   )

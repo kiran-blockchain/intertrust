@@ -7,9 +7,11 @@ import axios from "axios";
 export const Login =()=>{
     const[ login,setLogin]= useState({
         username:"",
-        password:""
+        password:"",
     });
+    const [country,selectCountry] = useState("USA");
     const [countryList,setCountryList] = useState([]); 
+    const [stateList,setStateList] = useState([]); 
     const handleChange = (e)=>{
         let newState = login;
         newState[e.target.name]=e.target.value;
@@ -28,9 +30,11 @@ export const Login =()=>{
             console.log(ex);
         }
     };
+  
     useEffect(()=>{
         getCountries();
     },[])
+  
   
 
     return(
