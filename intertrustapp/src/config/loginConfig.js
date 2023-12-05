@@ -15,6 +15,14 @@ export const loginConfig ={
         type:"password",
        
     },
+    confirmPassword:{
+        label:"Confirm Password",
+        name:"confirmPassword",
+        id:"confirmPassword",
+        placeholder:"Confirm Password",
+        type:"password",
+       
+    },
     Country:{
         label:"Country",
         name:"country",

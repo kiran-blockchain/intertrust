@@ -15,7 +15,7 @@ export const loginSchema = yup.object({
         .matches(/[0-9]/,getCharacterValidation('digit'))
         .matches(/[A-Z]/,getCharacterValidation('uppercase'))
         .matches(/[a-z]/,getCharacterValidation('lowercase')),
-//   confirmPassword :yup.string()
-//   .required('Please re-enter your password')
-//   .oneOf([ref('password')],'Passwords does not match')
+  confirmPassword :yup.string()
+  .required('Please re-enter your password')
+  .oneOf([ref('password')],'Passwords does not match')
 })

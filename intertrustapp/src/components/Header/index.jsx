@@ -1,10 +1,15 @@
-export const Header = (props) => {
+import { useNavigate } from "react-router";
 
+export const Header = (props) => {
+    const navigate = useNavigate();
     const buildNavItems = ()=>{
       let result =   props.config.navItems.map((item,index)=>{
         return (
-            <li class="nav-item" key={item.name+index}>
-                            <a class="nav-link" href={item.url}>{item.name}</a>
+            <li class="nav-item" key={item.name+index} 
+            onClick={e=>{
+                navigate(item.url);
+            }}>
+                            <a class="nav-link" >{item.name}</a>
                         </li>
         )
       });

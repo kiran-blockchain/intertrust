@@ -13,6 +13,7 @@ export const Login = () => {
         initialValues: {
             username: "",
             password: "",
+            confirmPassword:""
         },
         onSubmit:(values)=>{
             console.log(values);
@@ -47,12 +48,12 @@ export const Login = () => {
         <form className="mt-5">
             <Textbox config={loginConfig.username} onChange={handleChange} formik={formik} />
             <Textbox config={loginConfig.password} onChange={handleChange} formik={formik} />
+            <Textbox config={loginConfig.confirmPassword} onChange={handleChange} formik={formik} />
             <Dropdown config={loginConfig.Gender} data={loginConfig.Gender.data} onChange={handleChange} />
             <Dropdown config={loginConfig.Country} data={countryList()} onChange={handleChange} />
-            <h6 style={{ color: "white" }}>
-                {JSON.stringify(countryList)}
-
-            </h6>
+            <button className="btn btn-primary"
+            onClick={formik.handleSubmit}
+            >Login</button>
         </form>
 
     )

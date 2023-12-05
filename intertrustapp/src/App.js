@@ -11,6 +11,7 @@ import CallBackDemo from "./components/CallbackDemo";
 import { DemoRef } from "./components/DemoRef";
 import { DemoRef2 } from "./components/DemoRef/DemoRef2";
 import { DemoUsePrevious } from "./components/DemoPrevious";
+import { AppRoutes } from "./AppRoutes";
 
 export const App=()=>{
   return(
@@ -18,8 +19,9 @@ export const App=()=>{
           <div className="container-fluid">
             <Header config={headerConfig}/>
             <div className="row">
+              <AppRoutes/>
               {/* <DemoUsePrevious/> */}
-               <Login/>
+               {/* <Login/> */}
                {/* <Parent/> */}
                {/* <DemoFormMemo/> */}
                {/* <CallBackDemo/> */}
