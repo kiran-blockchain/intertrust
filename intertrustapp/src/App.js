@@ -10,6 +10,7 @@ import { DemoFormMemo } from "./components/DemoUseMemo";
 import CallBackDemo from "./components/CallbackDemo";
 import { DemoRef } from "./components/DemoRef";
 import { DemoRef2 } from "./components/DemoRef/DemoRef2";
+import { DemoUsePrevious } from "./components/DemoPrevious";
 
 export const App=()=>{
   return(
@@ -17,7 +18,8 @@ export const App=()=>{
           <div className="container-fluid">
             <Header config={headerConfig}/>
             <div className="row">
-               <Login/>
+              <DemoUsePrevious/>
+               {/* <Login/> */}
                {/* <Parent/> */}
                {/* <DemoFormMemo/> */}
                {/* <CallBackDemo/> */}
