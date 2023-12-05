@@ -8,6 +8,8 @@ import { Login } from "./pages/Login";
 import { Parent } from "./components/Parent";
 import { DemoFormMemo } from "./components/DemoUseMemo";
 import CallBackDemo from "./components/CallbackDemo";
+import { DemoRef } from "./components/DemoRef";
+import { DemoRef2 } from "./components/DemoRef/DemoRef2";
 
 export const App=()=>{
   return(
@@ -15,10 +17,12 @@ export const App=()=>{
           <div className="container-fluid">
             <Header config={headerConfig}/>
             <div className="row">
-               {/* <Login/> */}
+               <Login/>
                {/* <Parent/> */}
                {/* <DemoFormMemo/> */}
-               <CallBackDemo/>
+               {/* <CallBackDemo/> */}
+               {/* <DemoRef/>
+               <DemoRef2/> */}
             </div>
           </div>
   )

@@ -3,39 +3,23 @@ import { Textbox } from "../components/Textbox"
 import { loginConfig } from "../config/loginConfig"
 import { Dropdown } from "../components/Dropdown";
 import axios from "axios";
+import { useApiGet } from "../hooks/useApiGet";
 
 export const Login =()=>{
     const[ login,setLogin]= useState({
         username:"",
         password:"",
     });
-    const [country,selectCountry] = useState("USA");
-    const [countryList,setCountryList] = useState([]); 
-    const [stateList,setStateList] = useState([]); 
+    const unMappedCountryList = useApiGet("https://restcountries.com/v2/all");
     const handleChange = (e)=>{
         let newState = login;
         newState[e.target.name]=e.target.value;
         setLogin({...newState});
     };
-    const getCountries = async()=>{
-        try{
-            let result = await axios.get("https://restcountries.com/v2/all");
-            console.log(result.data);
-            let mappedData = result.data.map(x=>{
-                return{text:x.name,value:x.alpha3Code}
-            })
-             setCountryList(mappedData);
-        }
-        catch(ex){
-            console.log(ex);
-        }
-    };
-  
-    useEffect(()=>{
-        getCountries();
-    },[])
-  
-  
+    
+    const countryList = unMappedCountryList.map(x=>{
+            return{text:x.name,value:x.alpha3Code}
+    })
 
     return(
         <form className="mt-5">
