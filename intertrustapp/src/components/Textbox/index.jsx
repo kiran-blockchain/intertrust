@@ -1,4 +1,4 @@
-export const Textbox=({config,onChange})=>{
+export const Textbox=({config,onChange,formik})=>{
     return(
         <div class="row mb-3">
         <label for={config.id}
@@ -10,7 +10,12 @@ export const Textbox=({config,onChange})=>{
             id={config.id}
             name={config.name}
             placeholder={config.placeholder}
-            onChange={onChange}/>
+            onChange={onChange}
+            value={formik.values[config.name]}/>
+             {formik.errors[config.name] ?
+                     (<div class="text-danger">
+                        {formik.errors[config.name]}
+                    </div>) : null}
         </div>
       </div>
     )

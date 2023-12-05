@@ -18,8 +18,8 @@ export const App=()=>{
           <div className="container-fluid">
             <Header config={headerConfig}/>
             <div className="row">
-              <DemoUsePrevious/>
-               {/* <Login/> */}
+              {/* <DemoUsePrevious/> */}
+               <Login/>
                {/* <Parent/> */}
                {/* <DemoFormMemo/> */}
                {/* <CallBackDemo/> */}
