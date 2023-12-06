@@ -1,38 +1,47 @@
-import { useContext, useEffect } from "react"
-import { CounterContext } from "../provider/CounterContext";
+import { useEffect, useState } from "react";
+import Product from "../components/Product";
+
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart } from "../store/CartReducer";
 import { fetchProducts } from "../store/ProdcutReducer";
 
 export const Products = () => {
-    const ctx = useContext(CounterContext);
-    const products = useSelector(x=>x.products);
-    //redux hook to trigger the actions
-    const dispatch = useDispatch();
-    useEffect(() => {
-        return (() => {
-            console.log("Unloading")
-        })
-    });
-    const handleClick =(e)=>{
-        ctx.increment()
-    }
-    const add =()=>{
-        dispatch(addToCart({id:1,name:"iPhone"}))
-    }
+    const { products,
+        isLoading,
+        error } = useSelector(x => x.products)
+    const dispatch = useDispatch()
     useEffect(() => {
         dispatch(fetchProducts());
     }, [])
+    const renderProducts = () => {
+        if (products) {
+            return products.map((item, index) => {
+                console.log(item);
+                return <div class="col-md-3"><Product product={item} key={index} /></div>
+            });
+        }
+        return <div>There are no products</div>;
+    }
+    const showLoader = () => {
+        return (isLoading && <div class="progress">
+            <div class="progress-bar progress-bar-striped progress-bar-animated"
+                role="progressbar" aria-valuenow="75" aria-valuemin="0"
+                aria-valuemax="100"
+                style={{ width: "100%" }}></div>
+        </div>)
+    }
+    const showError = () => {
+        return (error && <div class="alert alert-danger" role="alert">
+            Error in fetching the data
+        </div>)
+    }
     return (
-        <div>
-            <button className="btn btn-danger"
-                onClick={handleClick}
-            >Increment Count</button>
-            <button className="btn btn-success" onClick={add}>
-                Add To Cart
-            </button>
-            <h1>I am Products Page</h1>
-            <pre>{JSON.stringify(products)}</pre>
+        <div className="container">
+            <div class="row mt-5">
+                {showLoader()}
+                {showError()}
+                {renderProducts()}
+            </div>
         </div>
     )
+
 }
