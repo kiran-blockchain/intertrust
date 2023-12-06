@@ -24,5 +24,10 @@ export const headerConfig = {
         id: 5,
         name: "Cart",
         url: "/cart"
+    },
+    {
+        id: 6,
+        name: "Logout",
+        url: "/login"
     }]
 }
