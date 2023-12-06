@@ -1,6 +1,9 @@
+import { useContext } from "react";
 import { useNavigate } from "react-router";
+import { CounterContext } from "../../provider/CounterContext";
 
 export const Header = (props) => {
+    const ctx = useContext(CounterContext)
     const navigate = useNavigate();
     const buildNavItems = ()=>{
       let result =   props.config.navItems.map((item,index)=>{
@@ -25,15 +28,8 @@ export const Header = (props) => {
                 <div class="collapse navbar-collapse" id="navbarColor02">
                     <ul class="navbar-nav me-auto">
                         {buildNavItems()}
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Separated link</a>
-                            </div>
+                        <li className="nav-item">
+                            <a class="nav-link" href="">{ctx.count}</a>
                         </li>
                     </ul>
                 </div>

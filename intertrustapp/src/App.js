@@ -12,10 +12,23 @@ import { DemoRef } from "./components/DemoRef";
 import { DemoRef2 } from "./components/DemoRef/DemoRef2";
 import { DemoUsePrevious } from "./components/DemoPrevious";
 import { AppRoutes } from "./AppRoutes";
+import { CounterContext } from "./provider/CounterContext";
 
 export const App=()=>{
+  const [numbers,setCount]= useState(0);
+  const inc = ()=>{
+    setCount(numbers+1);
+  };
+  const dec = ()=>{
+    setCount(numbers-1);
+  };
+
   return(
-    
+      <CounterContext.Provider
+       value={{
+      count:numbers,
+      increment:inc,
+      decrement:dec}}>
           <div className="container-fluid">
             <Header config={headerConfig}/>
             <div className="row">
@@ -29,6 +42,7 @@ export const App=()=>{
                <DemoRef2/> */}
             </div>
           </div>
+          </CounterContext.Provider>
   )
 }
 
