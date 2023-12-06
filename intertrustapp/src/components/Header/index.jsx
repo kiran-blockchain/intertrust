@@ -1,9 +1,11 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router";
 import { CounterContext } from "../../provider/CounterContext";
+import { useSelector } from "react-redux";
 
 export const Header = (props) => {
-    const ctx = useContext(CounterContext)
+    const ctx = useContext(CounterContext);
+    const cart = useSelector(x=>x.cart);
     const navigate = useNavigate();
     const buildNavItems = ()=>{
       let result =   props.config.navItems.map((item,index)=>{
@@ -28,9 +30,14 @@ export const Header = (props) => {
                 <div class="collapse navbar-collapse" id="navbarColor02">
                     <ul class="navbar-nav me-auto">
                         {buildNavItems()}
-                        <li className="nav-item">
+                        {/* <li className="nav-item">
                             <a class="nav-link" href="">{ctx.count}</a>
+                        </li> */}
+                        <li className="nav-item">
+                            <a class="nav-link" href="">{cart.items.length}</a>
                         </li>
+
+
                     </ul>
                 </div>
             </div>
