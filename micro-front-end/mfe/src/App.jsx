@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 
 import "./index.css";
 
-const App = () => (
+ const App = () => (
   <div className="container">
     <div>Name: mfe</div>
     <div>Framework: react</div>
@@ -11,4 +11,6 @@ const App = () => (
     <div>CSS: Empty CSS</div>
   </div>
 );
-ReactDOM.render(<App />, document.getElementById("app"));
+
+export default App;
+

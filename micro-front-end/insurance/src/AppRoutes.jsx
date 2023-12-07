@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router"
 import { Home } from "./Home";
-const MfeApp = React.lazy(() => import("mfe/MfeApp"));
+const MfeApp = React.lazy(() => import("mfe/MFEApp"));
 export const AppRoutes = () => {
     return (
     <Routes>
