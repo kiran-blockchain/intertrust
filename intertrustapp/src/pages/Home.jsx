@@ -4,6 +4,6 @@ import PortalDemo2 from "../components/Portals/demo2"
 
 export const Home =()=>{
     return(
-     <PortalDemo/>
+     <PortalDemo2/>
     )
 }
