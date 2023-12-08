@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 
 // Define a Higher Order Component (HOC) for data fetching
-const withDataFetching = (url) => (WrappedComponent) => {
+const withDataFetching = (url) => (WrappedComponent)=>{
   // Return a new component
-  return function WithDataFetching(props) {
+  return  (props) =>{
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -32,9 +32,9 @@ const withDataFetching = (url) => (WrappedComponent) => {
         setError(null);
       };
     }, [url]); // Re-run effect if the URL changes
-
+    return <WrappedComponent data={data} loading={loading} error={error} {...props}/>
     // Render the original component with data, loading, and error props
-    return <WrappedComponent data={data} loading={loading} error={error} {...props} />;
+   // return <WrappedComponent data={data} loading={loading} error={error} {...props} />;
   };
 };
 
@@ -62,8 +62,7 @@ const DisplayData = ({ data, loading, error }) => {
 
 // Enhance the functional component using the HOC
 const API_URL = 'https://jsonplaceholder.typicode.com/posts';
-const DisplayDataWithFetching = withDataFetching(API_URL)(DisplayData);
-
+const DisplayDataWithFetching = withDataFetching(API_URL)(DisplayData)
 // Use the enhanced component in your application
 const HOCDemo = () => {
   return <DisplayDataWithFetching />;

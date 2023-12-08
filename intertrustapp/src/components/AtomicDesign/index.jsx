@@ -19,10 +19,10 @@ const Header = () => (
 );
 
 // Templates
-const MainTemplate = ({ children }) => (
+const MainTemplate = (props) => (
   <div>
     <Header />
-    <main>{children}</main>
+    <main>{props.children}</main>
   </div>
 );
 
