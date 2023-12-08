@@ -21,7 +21,7 @@ export const AppRoutes = () => {
         </Protected>}></Route>
         <Route path="/cart" element={<Protected><Cart /></Protected>}></Route>
 
-        <Route path="*" element={<Login />}></Route>
+        <Route path="*" element={<Home />}></Route>
     </Routes >
     )
 

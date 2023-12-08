@@ -36,7 +36,7 @@ function useErrorBoundary() {
   return { handleError, ErrorFallback };
 }
 
-function ErrorBoundary({ children, FallbackComponent }) {
+const ErrorBoundary=({ children, FallbackComponent })=> {
   const { handleError } = useErrorBoundary();
 
   const handleComponentError = (error, errorInfo) => {
@@ -88,7 +88,7 @@ function MyComponent() {
   return <div>Rendered successfully!</div>;
 }
 
-function App() {
+function BoundaryDemo() {
   const { ErrorFallback } = useErrorBoundary();
 
   return (
@@ -98,4 +98,4 @@ function App() {
   );
 }
 
-export default App;
+export default BoundaryDemo;
